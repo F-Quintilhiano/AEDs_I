@@ -2,7 +2,7 @@
 # 📄 TRABALHO AEDS I - Simulação de Propagação de Incêndios
 
 <h1 align='center'>
-  🔥 Simulação de Propagação de Incêndio Florestal com Agente Autônomo 🔥
+   Simulação de Propagação de Incêndio Florestal 
 </h1>
 
 <div align='center'>
@@ -28,6 +28,7 @@
     <li><a href="#-compilação-e-execução">Compilação e Execução</a></li>
     <li><a href="#-casos-de-teste--exemplo">Casos de Teste / Exemplo</a></li>
     <li><a href="#-análises-e-observações">Análises e Observações</a></li>
+    <li><a href="#-análises-e-observações">Melhorias e Trabalhos Futuros</a></li>
     <li><a href="#-conclusão">Conclusão</a></li>
     <li><a href="#-contato">Contato</a></li>
   </ol>
@@ -74,7 +75,8 @@ O projeto segue a estrutura de pastas padrão:
 ├── input.dat            # Arquivo de entrada com a configuração inicial
 └── output.dat           # Arquivo de saída com os estados iterativos (gerado)
 
-💡 Implementação
+💡 IMPLEMENTAÇÃO
+
 A simulação foi implementada utilizando C++ e Programação Orientada a Objetos. A classe principal Simulacao encapsula o estado e a lógica da simulação.
 
 Representação da Floresta: Um std::vector<std::vector<int>> matriz_ armazena o estado de cada célula. Uma matriz auxiliar proxima_matriz_ é utilizada para calcular o estado da próxima iteração, garantindo atualizações simultâneas.
@@ -93,7 +95,9 @@ Implementa a regra de ficar parado: Se está em VAZIO, iteracoes_parado_vazio < 
 Se move: atualiza posição interna, incrementa passos_animal_, registra no caminho, reseta iteracoes_parado_vazio. Se o destino é Água, trata a interação (célula vira 0, vizinhos viram 1).
 Se fica parado: registra no caminho, incrementa iteracoes_parado_vazio (se estiver em VAZIO).
 Relatório Final (imprimir_relatorio_final): Exibe no console status final, iteração da morte (se houver), posição final, passos, água encontrada e caminho percorrido.
-🔥 Regras da Simulação (Resumo)
+
+🔥 REGRAS DA SIMULAÇÃO (RESUMO)
+
 Fogo:
 1 -> 2 (vizinho 2, respeita vento).
 2 -> 3 (após 1 iteração).
@@ -105,7 +109,9 @@ Prioridade: 4 > 0/1 > 3. Evita 2.
 Água: Célula 4 vira 0, vizinhos 1.
 Segunda Chance: Se atingido por 2, tenta mover. Morre se cercado.
 Ficar Parado: Pode ficar em 0 por até 3 turnos se não houver água próxima como melhor opção.
-👨🏻‍💻 Compilação e Execução
+
+👨🏻‍💻 COMPILAÇÃO E EXECUÇÃO
+
 Pré-requisitos
 Compilador C++ (g++ ou Clang).
 GNU Make.
@@ -125,7 +131,8 @@ make run
 
 A execução lerá input.dat e gerará/sobrescreverá output.dat. O relatório final aparecerá no console.
 
-🧪 Casos de Teste / Exemplo
+🧪 CASOS DE TESTE / EXEMPLO
+
 Utilizando o seguinte input.dat (5x5):
 
 5 5 1 1
@@ -153,13 +160,14 @@ Animal:
 
 
 
-📊 Análises e Observações
+📊 ANÁLISES E OBSERVAÇÕES
+
 O vento tem um impacto significativo na forma e velocidade da propagação do fogo. A ausência de vento (VENTO_TODOS) leva à maior área queimada, enquanto ventos direcionais podem extinguir o fogo mais rapidamente.
 O animal demonstrou alta capacidade de sobrevivência nos testes realizados. A combinação da "segunda chance" reativa, a capacidade de usar células Queimadas (3) como rota de fuga de baixa prioridade, e a estratégia de poder esperar em células Vazias (0) mostraram-se eficazes para evitar a morte por fogo ou exaustão nos cenários testados.
 A ordem dos eventos (animal move, fogo propaga, segunda chance) é fundamental para a dinâmica observada.
 A implementação da lógica de morte parece correta, mas os cenários testados não foram suficientes para acioná-la devido às regras de sobrevivência do animal.
 
-💡 Melhorias e Trabalhos Futuros
+💡 MELHORIAS E TRABALHOS FUTUROS
 
 A implementação atual focou em cumprir os requisitos essenciais do trabalho, modelando as regras de propagação do fogo e o comportamento reativo do animal conforme especificado. No entanto, existem diversas oportunidades para aprimorar e expandir esta simulação:
 
@@ -177,10 +185,12 @@ Topografia e Combustível: Adicionar diferentes tipos de terreno que influenciem
 Interface e Visualização:
 Desenvolver uma interface gráfica (GUI) usando bibliotecas como SFML, SDL ou Qt para uma visualização mais clara e interativa da simulação, em vez da saída no console.
 
-🏁 Conclusão
+🏁 CONCLUSÃO
+
 Este projeto implementou com sucesso a simulação de incêndio florestal e agente autônomo conforme as especificações do trabalho. A utilização de C++ e a estrutura adotada permitiram modelar as regras complexas de interação entre o fogo, o ambiente e o animal. A simulação é capaz de demonstrar diferentes padrões de propagação influenciados pelo vento e o comportamento de fuga do animal. Embora a morte do animal não tenha sido observada nos testes, a lógica para essa condição está implementada e as regras atuais favorecem sua sobrevivência. O desenvolvimento reforçou conceitos de algoritmos, estruturas de dados (matrizes/vetores 2D) e programação em C++.
 
-📪 Contato
+📪 CONTATO
+
 Nome: Fabrício Quintilhiano Braga
 Email: fabricioqbraga@hotmail.com
 
