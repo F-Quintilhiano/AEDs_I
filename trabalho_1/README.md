@@ -1,6 +1,7 @@
 
-#  TRABALHO AEDs I - Simulação de Propagação de Incêndios
-
+<h1 align='center'>
+  TRABALHO AEDs I - Simulação de Propagação de Incêndios
+</h1>
 <h1 align='center'>
    Simulação de Propagação de Incêndio Florestal 
 </h1>
